@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ray Bright | Solar Panel Cleaning</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+   <style>
+:root {
+  --primary: #00CED1;
+  --secondary: #008B8B;
+  --accent: #FFFFFF;
+  --background: #001F1F;
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --font-primary: 'Poppins', sans-serif;
+}
+/* Navbar Styles */
+
+/* Logo */
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+/* Nav Links */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.nav-links a:hover {
+    background: var(--primary);
+}
+
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: rgba(0, 139, 139, 0.95);
+        width: 200px;
+        border-radius: 10px;
+        padding: 15px;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 12px;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .services,
+    .pricing {
+        grid-template-columns: 1fr;
+    }
+
+    .button {
+        width: 100%;
+        text-align: center;
+        padding: 14px;
+    }
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+}
+	
+.card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 206, 209, 0.6);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--background);
+  color: var(--accent);
+  scroll-behavior: smooth;
+  line-height: 1.7;
+}
+
+header {
+  text-align: center;
+  padding: 70px 20px 30px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: var(--primary);
+}
+
+header p {
+  font-size: 1.2rem;
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: var(--secondary);
+  padding: 12px 20px;
+  gap: 12px;
+}
+
+nav a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+nav a:hover {
+  background: var(--primary);
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.hero h3 {
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.services,
+.pricing {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 30px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card i {
+  font-size: 2.4rem;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.card h3,
+.card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: var(--accent);
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--primary);
+    color: var(--background);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 206, 209, 0.4);
+}
+
+.button:hover {
+    background: var(--secondary);
+    transform: scale(1.05);
+}
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+footer {
+  text-align: center;
+  background: var(--secondary);
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #eee;
+}
+
+#about {
+  text-align: center;
+}
+
+.about-content {
+  background: var(--card-bg);
+  padding: 50px;
+  border-radius: 18px;
+  max-width: 900px;
+  margin: auto;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  font-size: 1.1rem;
+}
+
+.about-content h3 {
+  color: var(--primary);
+  margin: 35px 0 15px;
+  font-size: 1.5rem;
+}
+
+.about-content ul {
+  list-style: none;
+  text-align: left;
+  margin: 20px auto;
+  max-width: 700px;
+}
+
+.about-content ul li {
+  padding-left: 1.6em;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.about-content ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+.about-content a {
+  color: var(--primary);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.about-content a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.home-arrow {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--primary);
+  color: var(--background);
+  padding: 14px 16px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: background 0.3s;
+  z-index: 999;
+}
+
+.home-arrow:hover {
+  background: var(--secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    padding: 8px 14px;
+  }
+
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero h3 {
+    font-size: 1rem;
+  }
+
+  .about-content {
+    padding: 30px 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 25px 20px;
+  }
+
+  .home-arrow {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 14px;
+    font-size: 1.3rem;
+  }
+
+  .about-content {
+    padding: 25px 15px;
+    font-size: 0.95rem;
+  }
+}
+</style>
+</head>
+<body>
+  <header>
+    <h1>Ray Bright</h1>
+    <p>Expert Solar Panel Cleaning Services</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero" id="home">
+    <h2>Let Your Solar Panels Shine Again!</h2>
+    <h3>Increase efficiency • Eco-Friendly • Affordable</h3>
+  </section>
+
+  <section id="services"align="center">
+    <h2>Our Services</h2><br>
+    <div class="services">
+      <div class="card">
+        <i class="fas fa-solar-panel"></i>
+        <h3>Solar Panel Cleaning</h3>
+        <p>₹30 per panel — Basic exterior cleaning</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-tint"></i>
+        <h3>Hard Water Stain Removal</h3>
+        <p>Remove stubborn mineral stains</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-dove"></i>
+        <h3>Bird Dropping Cleaning</h3>
+        <p>Special cleaning for tough messes</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-tools"></i>
+        <h3>Maintenance Packages</h3>
+        <p>₹1,200 for 3 cleanings in 6 months</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" align="center"><br>
+    <h2>Pricing</h2><br>
+    <div class="pricing">
+      <div class="card">
+        <h4>Monthly Package</h4><br>
+        <p>₹1,200/month</p><br>
+	<p>2 service per month</p><br>
+	<p>2 service total</p><br>
+      </div>
+      <div class="card">
+        <h4>Half-Yearly Package</h4><br>
+        <p>₹6,480 (10% discount)</p><br>
+	<p>2 service per month</p><br>
+	<p>12 service total</p><br>
+      </div>
+      <div class="card">
+        <h4>Yearly Package</h4><br>
+        <p>₹12,240 (15% discount)</p><br>
+	<p>2 service per month</p><br>
+	<p>24 service total</p><br>
+      </div>
+    </div>
+  </section>
+
+	<section id="about">
+    <h2>About Us</h2><br>
+    <div class="about-content">
+        <p><strong>Ray Bright</strong> was founded with a simple mission: to help homeowners and businesses get the most out of their solar energy by providing professional, affordable, and eco-friendly solar panel cleaning services. Over time, dust, dirt, bird droppings, and hard water stains reduce the efficiency of your solar panels. Our expert cleaning ensures they stay in peak condition, maximizing your energy output.</p>
+
+        <h3>🌟 Why Choose Us?</h3>
+        <ul>
+            <li><strong>Eco-Friendly Cleaning:</strong> We use safe, biodegradable products that won’t harm your panels or the environment.</li>
+            <li><strong>Professional Team:</strong> Our skilled technicians have years of experience in solar maintenance and cleaning.</li>
+            <li><strong>Affordable & Transparent Pricing:</strong> No hidden charges – just straightforward, budget-friendly services.</li>
+            <li><strong>Local & Trusted:</strong> Proudly serving Rajkot, Gujarat, and nearby areas with high customer satisfaction.</li>
+        </ul>
+
+        <h3>💡 Our Mission</h3>
+        <p>“Bringing clean energy to life.” We believe in sustainable solutions and are committed to helping you maintain your solar investment efficiently.</p>
+
+        <h3>📍 Our Location</h3>
+        <p>Based in <strong>Rajkot, Gujarat</strong>, we serve both residential and commercial clients across the region. Whether you need a one-time cleaning or a long-term maintenance plan, we’re here to help!</p>
+
+            </div>
+</section>
+
+
+  <section id="contact"align="center">
+    <h2>Contact Us</h2>
+    <p>📞 Call/WhatsApp: <strong>+91 9586490706</strong></p>
+    <p>📍 Serving all areas of Rajkot, Gujarat</p><br><br>
+    <a href="https://wa.me/919586490706" class="button">Contact Via Whatsapp</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Ray Bright. All rights reserved.</p>
+  </footer>
+<a href="#home" class="home-arrow" title="Back to Home">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+</body>
+</html>
