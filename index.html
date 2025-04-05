@@ -6,172 +6,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ray Bright | Solar Panel Cleaning</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-   <style>
-:root {
+   	<style>
+		:root {
   --primary: #00CED1;
   --secondary: #008B8B;
   --accent: #FFFFFF;
-  --background: #001F1F;
-  --card-bg: rgba(255, 255, 255, 0.08);
+  --background: linear-gradient(135deg, #012727, #001010);
+  --card-bg: rgba(255, 255, 255, 0.05);
   --font-primary: 'Poppins', sans-serif;
-}
-/* Navbar Styles */
-
-/* Logo */
-.nav-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--accent);
-}
-
-/* Nav Links */
-.nav-links {
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links a {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: all 0.3s;
-}
-
-.nav-links a:hover {
-    background: var(--primary);
-}
-
-
-/* Responsive Navbar */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background: rgba(0, 139, 139, 0.95);
-        width: 200px;
-        border-radius: 10px;
-        padding: 15px;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 12px;
-        text-align: center;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links.show {
-        display: flex;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    .services,
-    .pricing {
-        grid-template-columns: 1fr;
-    }
-
-    .button {
-        width: 100%;
-        text-align: center;
-        padding: 14px;
-    }
-}
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.card {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease-out forwards;
-    animation-delay: 0.3s;
-}
-	
-.card {
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 206, 209, 0.6);
+  --font-secondary: 'Roboto', sans-serif;
+  --font-display: 'Raleway', sans-serif;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all 0.4s ease-in-out;
 }
 
 body {
   font-family: var(--font-primary);
   background: var(--background);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  background-attachment: fixed;
   color: var(--accent);
   scroll-behavior: smooth;
   line-height: 1.7;
+  cursor: url('cursor.svg'), auto;
 }
 
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Header */
 header {
   text-align: center;
   padding: 70px 20px 30px;
 }
 
 header h1 {
-  font-size: 2.5rem;
-  color: var(--primary);
+  font-size: 3rem;
+  font-family: var(--font-display);
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 header p {
   font-size: 1.2rem;
+  font-family: var(--font-secondary);
   color: var(--accent);
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
+/* Navbar */
 nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background: var(--secondary);
+  background: rgba(0, 139, 139, 0.8);
   padding: 12px 20px;
   gap: 12px;
+  backdrop-filter: blur(10px);
 }
 
-nav a {
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
   color: var(--accent);
   text-decoration: none;
-  font-weight: 600;
-  padding: 10px 16px;
+  font-weight: bold;
+  padding: 10px 15px;
   border-radius: 5px;
-  transition: background 0.3s;
+  transition: all 0.3s;
 }
 
-nav a:hover {
-  background: var(--primary);
+.nav-links a:hover {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
 }
 
+/* Hero */
 .hero {
   text-align: center;
   padding: 80px 20px 40px;
@@ -179,40 +107,42 @@ nav a:hover {
 
 .hero h2 {
   font-size: 2rem;
-  color: var(--primary);
-  margin-bottom: 10px;
+  font-family: var(--font-display);
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero h3 {
   font-size: 1.2rem;
+  font-family: var(--font-secondary);
   opacity: 0.85;
 }
 
+/* Sections */
 section {
   padding: 60px 20px;
   max-width: 1200px;
   margin: auto;
 }
 
-.services,
-.pricing {
-  display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  margin-top: 30px;
-}
-
+/* Cards */
 .card {
   background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 30px;
   border-radius: 14px;
   text-align: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s;
+  animation: fadeInUp 0.8s ease-out forwards;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
 }
 
 .card i {
@@ -221,60 +151,107 @@ section {
   margin-bottom: 12px;
 }
 
-.card h3,
-.card h4 {
+.card h3, .card h4 {
   font-size: 1.3rem;
   margin-bottom: 12px;
   color: var(--accent);
+  font-family: var(--font-secondary);
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button */
 .button {
-    display: inline-block;
-    padding: 14px 28px;
-    background: var(--primary);
-    color: var(--background);
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 206, 209, 0.4);
+  display: inline-block;
+  padding: 14px 28px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  font-family: var(--font-secondary);
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 206, 209, 0.4);
 }
 
 .button:hover {
-    background: var(--secondary);
-    transform: scale(1.05);
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  color: #001010;
+  transform: scale(1.05);
 }
+
+/* WhatsApp Floating Icon */
 .whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    padding: 12px 16px;
-    border-radius: 50%;
-    font-size: 1.8rem;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 
 .whatsapp-float:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
+/* Scroll to Top */
+.home-arrow {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  color: #0F0F0F;
+  padding: 14px 16px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: background 0.3s;
+  z-index: 999;
+}
+
+.home-arrow:hover {
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+}
+
+/* Footer */
 footer {
   text-align: center;
-  background: var(--secondary);
-  padding: 20px;
-  font-size: 0.9rem;
-  color: #eee;
+  background: linear-gradient(135deg, #002222, #001515);
+  padding: 30px;
+  font-size: 0.95rem;
+  color: var(--accent);
 }
 
+footer a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: var(--primary);
+}
+
+/* About Section */
 #about {
   text-align: center;
 }
 
 .about-content {
   background: var(--card-bg);
+  backdrop-filter: blur(6px);
   padding: 50px;
   border-radius: 18px;
   max-width: 900px;
@@ -287,6 +264,7 @@ footer {
   color: var(--primary);
   margin: 35px 0 15px;
   font-size: 1.5rem;
+  font-family: var(--font-display);
 }
 
 .about-content ul {
@@ -300,6 +278,7 @@ footer {
   padding-left: 1.6em;
   margin-bottom: 14px;
   position: relative;
+  font-family: var(--font-secondary);
 }
 
 .about-content ul li::before {
@@ -320,25 +299,7 @@ footer {
   text-decoration: underline;
 }
 
-.home-arrow {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: var(--primary);
-  color: var(--background);
-  padding: 14px 16px;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-  transition: background 0.3s;
-  z-index: 999;
-}
-
-.home-arrow:hover {
-  background: var(--secondary);
-}
-
-/* Responsive Design */
+/* Responsive Enhancements */
 @media (max-width: 768px) {
   header h1 {
     font-size: 2rem;
@@ -349,8 +310,32 @@ footer {
     align-items: center;
   }
 
-  nav a {
-    padding: 8px 14px;
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 139, 139, 0.95);
+    padding: 15px;
+    border-radius: 10px;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
   }
 
   .hero h2 {
@@ -382,9 +367,19 @@ footer {
   .about-content {
     padding: 25px 15px;
     font-size: 0.95rem;
+
+.card-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
   }
 }
-</style>
+
+
+	</style>
 </head>
 <body>
   <header>
@@ -392,13 +387,15 @@ footer {
     <p>Expert Solar Panel Cleaning Services</p>
   </header>
 
+
+
   <section class="hero" id="home">
     <h2>Let Your Solar Panels Shine Again!</h2>
     <h3>Increase efficiency • Eco-Friendly • Affordable</h3>
   </section>
 
   <section id="services"align="center">
-    <h2>Our Services</h2><br>
+    <h2>Our Services</h2><br><br>
     <div class="services">
       <div class="card">
         <i class="fas fa-solar-panel"></i>
@@ -424,7 +421,7 @@ footer {
   </section>
 
   <section id="pricing" align="center"><br>
-    <h2>Pricing</h2><br>
+    <h2>Pricing</h2><br><br>
     <div class="pricing">
       <div class="card">
         <h4>Monthly Package</h4><br>
@@ -447,8 +444,19 @@ footer {
     </div>
   </section>
 
+	<section id="founder">
+  <h2 align="center">Our Founder</h2><br><br>
+  <div class="card-grid">
+    <div class="card">
+      <i class="fas fa-user-tie"></i>
+      <h3>Keyur Dudhatra</h3>
+      <p>Founder</p>
+    </div>
+  </div>
+</section>
+
 	<section id="about">
-    <h2>About Us</h2><br>
+    <h2>About Us</h2><br><br>
     <div class="about-content">
         <p><strong>Ray Bright</strong> was founded with a simple mission: to help homeowners and businesses get the most out of their solar energy by providing professional, affordable, and eco-friendly solar panel cleaning services. Over time, dust, dirt, bird droppings, and hard water stains reduce the efficiency of your solar panels. Our expert cleaning ensures they stay in peak condition, maximizing your energy output.</p>
 
@@ -471,10 +479,14 @@ footer {
 
 
   <section id="contact"align="center">
-    <h2>Contact Us</h2>
+    <h2>Contact Us</h2><br>
     <p>📞 Call/WhatsApp: <strong>+91 9586490706</strong></p>
     <p>📍 Serving all areas of Rajkot, Gujarat</p><br><br>
-    <a href="https://wa.me/919586490706" class="button">Contact Via Whatsapp</a>
+    <a href="https://wa.me/919586490706" class="button">Contact Via Whatsapp</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://instagram.com/keyur_dudhatra" target="_blank" class="button">
+      Contact via Instagram
+    </a>
+
   </section>
 
   <footer>
@@ -483,6 +495,10 @@ footer {
 <a href="#home" class="home-arrow" title="Back to Home">
   <i class="fas fa-arrow-up"></i>
 </a>
-
+<script>
+function toggleMenu() {
+    document.getElementById("menuList").classList.toggle("active");
+}
+</script>
 </body>
 </html>
